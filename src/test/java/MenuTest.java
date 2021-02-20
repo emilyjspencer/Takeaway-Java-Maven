@@ -64,6 +64,12 @@ class MenuTest {
         assertEquals("Item is not on the menu", exception.getMessage());
     }
 
+    @Test
+    void returnsPriceOfItem() {
+        Menu menu = new Menu((HashMap<String, Double>) menuItems);
+        assertEquals(6.99, menu.getPrice("Vegan Pizza"));
+
+    }
 
     @Test
     void systemOutRedirection_whenPrintlnCalled_CaptorSuccessOutput() {

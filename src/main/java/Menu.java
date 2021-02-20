@@ -26,4 +26,12 @@ public class Menu {
        return false;
     }
 
+    public double getPrice(String item) {
+        double result = 0;
+        for (String i : dishes.keySet()) {
+            result = dishes.get(i);
+        }
+        return result;
+    }
+
 }
