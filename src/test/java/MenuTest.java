@@ -44,7 +44,7 @@ class MenuTest {
         String dishList = "Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99";
         Menu menu = new Menu((HashMap<String, Double>) dishes);
         menu.readMenu();
-        assertEquals("Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99", "Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99", outputStreamCaptor.toString());
+        assertEquals("Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99", dishList, outputStreamCaptor.toString());
     }
 
     @Test
