@@ -18,11 +18,11 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class MenuTest {
 
-    static Map<String, Double> dishes = new HashMap<>();
+    static Map<String, Double> menuItems = new HashMap<>();
         static {
-            dishes.put("Pepperoni Pizza", 8.99);
-            dishes.put("Vegan Pizza", 6.99);
-            dishes.put("Pasta", 5.99);
+            menuItems.put("Pepperoni Pizza", 8.99);
+            menuItems.put("Vegan Pizza", 6.99);
+            menuItems.put("Pasta", 5.99);
         };
 
     private final PrintStream standardOut = System.out;
@@ -35,17 +35,25 @@ class MenuTest {
 
     @Test
     void canSeeListOfDishes_AndPrices() {
-        Menu menu = new Menu((HashMap<String, Double>) dishes);
-        assertEquals(dishes, menu.getDishes());
+        Menu menu = new Menu((HashMap<String, Double>) menuItems);
+        assertEquals(menuItems, menu.getDishes());
     }
 
     @Test
     void printsAListOf_DishesWith_TheirRespectivePrices() {
         String dishList = "Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99";
-        Menu menu = new Menu((HashMap<String, Double>) dishes);
+        Menu menu = new Menu((HashMap<String, Double>) menuItems);
         menu.readMenu();
         assertEquals("Pepperoni Pizza 8.99 Vegan Pizza 6.99 Pasta 5.99", dishList, outputStreamCaptor.toString());
     }
+
+    @Test
+    void verifiesThatDish_IsOnTheMenu() {
+        Menu menu = new Menu((HashMap<String, Double>) menuItems);
+        assertEquals(true, menu.includes_item("Vegan Pizza"));
+    }
+
+
 
     @Test
     void systemOutRedirection_whenPrintlnCalled_CaptorSuccessOutput() {
