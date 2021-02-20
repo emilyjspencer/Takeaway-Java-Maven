@@ -19,7 +19,7 @@ public class Menu {
        }
    }
 
-    public boolean includes_item(String item) {
+    public boolean includesItem(String item) {
        if (dishes.containsKey(item)) {
            return true;
        }

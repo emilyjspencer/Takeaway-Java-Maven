@@ -50,9 +50,19 @@ class MenuTest {
     @Test
     void verifiesThatDish_IsOnTheMenu() {
         Menu menu = new Menu((HashMap<String, Double>) menuItems);
-        assertEquals(true, menu.includes_item("Vegan Pizza"));
+        assertEquals(true, menu.includesItem("Vegan Pizza"));
     }
 
+    @Test
+    void throwsErrorIfDish_IsNotOnTheMenu() {
+        Menu menu = new Menu((HashMap<String, Double>) menuItems);
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> {
+                    boolean result = menu.includesItem("Chicken Burger");
+                }
+        );
+        assertEquals("Item is not on the menu", exception.getMessage());
+    }
 
 
     @Test
