@@ -13,10 +13,11 @@ public class Menu {
        return (HashMap<String, Double>) dishes;
    }
 
-   public void readMenu() {
+   public Menu readMenu() {
        for (String i : dishes.keySet()) {
            System.out.println(i + " " + dishes.get(i));
        }
+       return null;
    }
 
     public boolean includesItem(String item) {
