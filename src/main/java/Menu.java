@@ -13,5 +13,10 @@ public class Menu {
        return (HashMap<String, Double>) dishes;
    }
 
+   public void readMenu() {
+       for (String i : dishes.keySet()) {
+           System.out.println(i + " " + dishes.get(i));
+       }
+   }
 
 }
